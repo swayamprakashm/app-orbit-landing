@@ -1,0 +1,138 @@
+/* Reset basic margins and set fonts */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  color: #ffffff;
+}
+
+/* Main Container */
+.app-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+/* Fullscreen Background Video */
+.background-video {
+  position: fixed; /* Keeps video in place even if you scroll */
+  top: 50%;
+  left: 50%;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1;
+  transform: translate(-50%, -50%);
+  object-fit: cover;
+  filter: brightness(0.35); /* Darkens the video so text pops */
+}
+
+/* Content Container */
+.content-overlay {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: 4rem 2rem;
+  max-width: 900px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* Hero Section */
+.hero h1 {
+  /* FIX: Uses clamp so it's 4rem on desktop, but shrinks to 2.5rem on phones */
+  font-size: clamp(2.5rem, 8vw, 4rem); 
+  font-weight: 800;
+  margin-bottom: 0.5rem;
+  letter-spacing: -1px;
+  /* FIX: Added line-height and text-wrap so it looks clean if it breaks into two lines */
+  line-height: 1.1; 
+  text-wrap: balance; 
+}
+
+.hero .tagline {
+  /* FIX: Also scales smoothly for mobile */
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  /* FIX: Bumped to 400 so it doesn't get lost against the dark video background */
+  font-weight: 400; 
+  margin-bottom: 2.5rem;
+  color: #a78bfa; 
+}
+
+.hero .description {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 2.5rem;
+  color: #e5e7eb;
+}
+
+/* Download Button */
+.download-btn {
+  background-color: #8b5cf6;
+  color: white;
+  border: none;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: transform 0.2s, background-color 0.2s;
+  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
+  text-decoration: none; /* Removes the underline */
+  display: inline-block; /* Ensures padding/margins work correctly on links */
+}
+
+.download-btn:hover {
+  background-color: #7c3aed;
+  transform: translateY(-2px);
+}
+
+/* Features Section */
+.features h2, .developers h2 {
+  font-size: 2.5rem;
+  margin-bottom: 2rem;
+}
+
+.feature-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  transition: transform 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-5px);
+}
+
+.feature-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+/* Developers Section */
+.developers {
+  padding-bottom: 3rem;
+}
+
+.developers p {
+  font-size: 1.1rem;
+  color: #d1d5db;
+}
