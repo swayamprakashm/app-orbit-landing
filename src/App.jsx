@@ -21,7 +21,7 @@ function App() {
             The ultimate application usage tracker and screen time management tool. 
             Monitor habits, set boundaries, and build a healthier relationship with your devices.
           </p>
-          <a href="/apporbit.apk" download="AppOrbit.apk" className="download-btn">
+          <a href="https://github.com/swayamprakashm/app-orbit-landing/releases/download/Application/AppOrbit.apk" className="download-btn">
             Download AppOrbit
           </a>
         </header>
