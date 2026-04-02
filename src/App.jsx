@@ -31,8 +31,10 @@ function App() {
             Monitor habits, set boundaries, and build a healthier relationship with your devices.
           </p>
 
-          <a
-            href="https://github.com/swayamprakashm/app-orbit-landing/releases/download/Application/AppOrbit.apk"
+          <a 
+            href="https://github.com/swayamprakashm/app-orbit-landing/releases/download/Application/AppOrbit.apk" 
+            target="_blank" 
+            rel="noopener noreferrer"
             className="download-btn"
           >
             Download AppOrbit
