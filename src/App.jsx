@@ -32,9 +32,7 @@ function App() {
           </p>
 
           <a 
-            href="https://github.com/swayamprakashm/app-orbit-landing/releases/download/Application/AppOrbit.apk" 
-            target="_blank" 
-            rel="noopener noreferrer"
+            href="https://www.dropbox.com/scl/fi/mz437xv6ioe2m3k0r399p/AppOrbit.apk?rlkey=2szzk1mt4evf1r7uk7go2u38v&st=8bwm629x&dl=1" 
             className="download-btn"
           >
             Download AppOrbit
