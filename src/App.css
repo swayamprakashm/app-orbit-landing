@@ -1,4 +1,4 @@
-/* Reset basic margins and set fonts */
+/* Reset + Base */
 * {
   margin: 0;
   padding: 0;
@@ -8,9 +8,10 @@
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
   color: #ffffff;
+  background: #0b0b12;
 }
 
-/* Main Container */
+/* Container */
 .app-container {
   position: relative;
   min-height: 100vh;
@@ -20,119 +21,211 @@ body {
   justify-content: center;
 }
 
-/* Fullscreen Background Video */
+/* Replace your top background-video block with this: */
 .background-video {
-  position: fixed; /* Keeps video in place even if you scroll */
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -1;
-  transform: translate(-50%, -50%);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
   object-fit: cover;
-  filter: brightness(0.35); /* Darkens the video so text pops */
+  z-index: -1;
+
+  /* Enhanced overlay effect */
+  filter: brightness(0.3) contrast(1.1) saturate(1.2);
 }
 
-/* Content Container */
+/* Overlay Content */
 .content-overlay {
   position: relative;
   z-index: 1;
   text-align: center;
-  padding: 4rem 2rem;
-  max-width: 900px;
+  padding: 5rem 1.5rem;
+  max-width: 950px;
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 4rem;
+  gap: 5rem;
 }
 
-/* Hero Section */
+/* HERO */
 .hero h1 {
-  /* FIX: Uses clamp so it's 4rem on desktop, but shrinks to 2.5rem on phones */
-  font-size: clamp(2.5rem, 8vw, 4rem); 
-  font-weight: 800;
-  margin-bottom: 0.5rem;
-  letter-spacing: -1px;
-  /* FIX: Added line-height and text-wrap so it looks clean if it breaks into two lines */
-  line-height: 1.1; 
-  text-wrap: balance; 
+  /* ... your other styles ... */
+  line-height: 1.2; 
+  padding-bottom: 0.1em;
+  background: linear-gradient(90deg, #ffffff, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text; /* ADD THIS LINE */
+  -webkit-text-fill-color: transparent;
 }
+
 
 .hero .tagline {
-  /* FIX: Also scales smoothly for mobile */
   font-size: clamp(1.2rem, 4vw, 1.5rem);
-  /* FIX: Bumped to 400 so it doesn't get lost against the dark video background */
-  font-weight: 400; 
-  margin-bottom: 2.5rem;
-  color: #a78bfa; 
+  font-weight: 500;
+  margin-top: 0.5rem;
+  color: #c4b5fd;
 }
 
 .hero .description {
   font-size: 1.1rem;
-  line-height: 1.6;
-  margin-bottom: 2.5rem;
-  color: #e5e7eb;
+  line-height: 1.7;
+  color: #d1d5db;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
-/* Download Button */
+/* Button */
 .download-btn {
-  background-color: #8b5cf6;
+  background: linear-gradient(135deg, #8b5cf6, #6d28d9);
   color: white;
   border: none;
-  padding: 1rem 2.5rem;
-  font-size: 1.2rem;
-  font-weight: bold;
-  border-radius: 50px;
+  padding: 1rem 2.8rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  border-radius: 999px;
   cursor: pointer;
-  transition: transform 0.2s, background-color 0.2s;
-  box-shadow: 0 4px 15px rgba(139, 92, 246, 0.4);
-  text-decoration: none; /* Removes the underline */
-  display: inline-block; /* Ensures padding/margins work correctly on links */
+  transition: all 0.3s ease;
+  text-decoration: none;
+  display: inline-block;
+
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.35);
 }
 
 .download-btn:hover {
-  background-color: #7c3aed;
-  transform: translateY(-2px);
+  transform: translateY(-3px) scale(1.03);
+  box-shadow: 0 15px 40px rgba(139, 92, 246, 0.5);
 }
 
-/* Features Section */
-.features h2, .developers h2 {
-  font-size: 2.5rem;
-  margin-bottom: 2rem;
+/* Section Titles */
+.features h2,
+.developers h2 {
+  /* ... your other styles ... */
+  background: linear-gradient(90deg, #fff, #a78bfa);
+  -webkit-background-clip: text;
+  background-clip: text; /* ADD THIS LINE */
+  -webkit-text-fill-color: transparent;
 }
 
+/* Features Grid */
 .feature-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 2rem;
 }
 
+/* Feature Card */
 .feature-card {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
   padding: 2rem;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  transition: transform 0.3s;
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  transition: all 0.35s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Glow Effect */
+.feature-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at top left, rgba(139,92,246,0.25), transparent 60%);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.feature-card:hover::before {
+  opacity: 1;
 }
 
 .feature-card:hover {
-  transform: translateY(-5px);
+  transform: translateY(-8px) scale(1.02);
+  border-color: rgba(167, 139, 250, 0.4);
 }
 
 .feature-card h3 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
+  font-size: 1.25rem;
+  margin-bottom: 0.8rem;
+  color: #ede9fe;
 }
 
-/* Developers Section */
+.feature-card p {
+  font-size: 0.95rem;
+  color: #d1d5db;
+  line-height: 1.6;
+}
+
+/* Developers */
 .developers {
   padding-bottom: 3rem;
 }
 
 .developers p {
-  font-size: 1.1rem;
-  color: #d1d5db;
+  font-size: 1.05rem;
+  color: #cbd5f5;
 }
+
+/* Smooth Fade-in Animation */
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero,
+.features,
+.developers {
+  animation: fadeUp 0.8s ease forwards;
+}
+
+/* Mobile Polish */
+@media (max-width: 600px) {
+  .content-overlay {
+    padding: 3rem 1rem;
+    gap: 3rem;
+  }
+
+  .feature-card {
+    padding: 1.5rem;
+  }
+
+  .download-btn {
+    width: 100%;
+  }
+}
+
+/* Delete all of this from the bottom of your file */
+/* Video */
+.background-video {
+  position: fill; 
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Dark overlay on video */
+.video-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+/* Content above video */
+.content-overlay {
+  position: relative;
+  z-index: 2;
